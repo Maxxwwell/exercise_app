@@ -1,9 +1,11 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { useState } from 'react';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { View, Text, StatusBar, TextInput } from 'react-native';
+import { StatusBar, Text, TextInput } from 'react-native';
 import { COLORS, SIZES } from '../constants';
-import { BackgroundImage, ExerciseDuration, ExerciseImage, ExerciseSubtitle, ExerciseTitle, HalfContainer, SafeArea, ShortTextField } from '../style/component-styles';
+import { BackgroundImage, ExerciseCard, ExerciseCardImage, ExerciseDuration, ExerciseImage, ExerciseSubtitle, ExerciseTitle, HalfContainer, LevelContainer, LevelText, SafeArea, SessionList, ShortTextField } from '../style/component-styles';
+import SessionItem from '../components/SessionItem';
 
 
 let sessions_data = [
@@ -56,9 +58,40 @@ const ExerciseDetails = ({ route }) => {
                     <TextInput placeholder="search" style={{ flex: 1 }} />
                 </ShortTextField>
 
-                <ExerciseImage source={exercise.image}/>
+                <ExerciseImage source={exercise.image} />
 
             </HalfContainer>
+
+            <SessionList
+                data={sessions_data}
+                contentContainerStyle={{
+                    alignItems: 'center',
+                }}
+                showsVerticalScrollIndicator={false}
+                numColumns={2}
+                keyExtractor={item => item}
+                renderItem={({ item, index }) => (
+                    <SessionItem
+                        session={item}
+                        index={index}
+                    />
+                )}
+
+            />
+            <ExerciseCard>
+                <ExerciseCardImage
+                    source={exercise.image} />
+                <LevelContainer>
+                    <LevelText>
+                        Level 20
+                    </LevelText>
+                    <Text>
+                        Practice daily to level up
+                    </Text>
+                </LevelContainer>
+
+
+            </ExerciseCard>
         </SafeArea>
     );
 };

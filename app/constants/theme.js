@@ -9,6 +9,7 @@ export const COLORS = {
 
     black: '#171717',
     white: '#FFFFFF',
+    purple: '#3a027f',
     background: '#252C4A',
 };
 

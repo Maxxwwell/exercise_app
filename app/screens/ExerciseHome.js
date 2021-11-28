@@ -1,6 +1,7 @@
+/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { StatusBar, Text, TextInput } from 'react-native';
+import { StatusBar, TextInput } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ExerciseItem } from '../components/ExerciseItem';
@@ -46,7 +47,6 @@ const ExerciseHome = ({navigation}) => {
                 animated={true}
             />
             <HalfContainer
-                // eslint-disable-next-line react-native/no-inline-styles
                 style={{
                     width: '100%',
                     height: 0.4 * SIZES.height,
@@ -77,7 +77,6 @@ const ExerciseHome = ({navigation}) => {
 
             <FlatList
                 data={exercises}
-                // eslint-disable-next-line react-native/no-inline-styles
                 style={{ paddingHorizontal: 20, marginTop: -100}}
                 numColumns={2}
                 showsVerticalScrollIndicator={true}
