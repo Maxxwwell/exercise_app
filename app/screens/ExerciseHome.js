@@ -1,11 +1,11 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { StatusBar, Text, TextInput,Image } from 'react-native';
+import { StatusBar, Text, TextInput, Image } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { ExerciseItem } from '../components/ExerciseItem';
 import { COLORS, SIZES } from '../constants';
-import { MenuIcon, BackgroundImage, HalfContainer, SafeArea, TextField, CardImage } from '../style/component-styles';
+import { MenuIcon, BackgroundImage, HalfContainer, SafeArea, TextField } from '../style/component-styles';
 
 let exercises = [
     {
@@ -37,28 +37,7 @@ let exercises = [
     },
 ];
 
-const ExerciseItem = ({ exercise }) => {
-    return (
-        <TouchableOpacity
-            activeOpacity={0.8}
-            style={{
-                backgroundColor: COLORS.white,
-                width: 0.5 * SIZES.width - 40,
-                margin: 10,
-                height: 180,
-                borderRadius: 10,
-                padding: 15,
-                shadowColor: '#9e9898',
-                elevation: 8,
-            }}>
-                <CardImage source={exercise.image}>
-
-                </CardImage>
-        </TouchableOpacity>
-    );
-
-};
-const ExerciseHome = () => {
+const ExerciseHome = ({navigation}) => {
     return (
         <SafeArea>
             <StatusBar
@@ -67,9 +46,10 @@ const ExerciseHome = () => {
                 animated={true}
             />
             <HalfContainer
+                // eslint-disable-next-line react-native/no-inline-styles
                 style={{
                     width: '100%',
-                    height: 0.45 * SIZES.height,
+                    height: 0.4 * SIZES.height,
                     padding: 20,
                     backgroundColor: COLORS.primary,
                 }}
@@ -86,7 +66,8 @@ const ExerciseHome = () => {
                 <TextField>
                     <Icon
                         style={{ marginHorizontal: 20 }}
-                        name={'search'} size={25} color={COLORS.black}
+                        name={'search'} size={25}
+                        color={COLORS.black}
                     />
                     <TextInput placeholder="search" style={{ flex: 1 }} />
                 </TextField>
@@ -96,11 +77,12 @@ const ExerciseHome = () => {
 
             <FlatList
                 data={exercises}
-                style={{ paddingHorizontal: 20 }}
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{ paddingHorizontal: 20, marginTop: -100}}
                 numColumns={2}
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator={true}
                 keyExtractor={item => item.title}
-                renderItem={({ item }) => <ExerciseItem exercise={item} />}
+                renderItem={({ item }) => <ExerciseItem exercise={item} navigation={navigation} />}
             />
         </SafeArea>
     );

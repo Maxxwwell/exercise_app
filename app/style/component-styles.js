@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { SafeAreaView, View, Image, Text } from 'react-native';
 import { COLORS, SIZES } from '../constants';
 
-const h = 0.45 * SIZES.height;
+
 export const SafeArea = styled(SafeAreaView)`
     flex: 1;
     position: relative;
@@ -36,4 +36,12 @@ export const CardImage = styled(Image)`
     flex: 1;
     resize-mode: cover;
     width: 100%;
+`;
+
+export const CardTitle = styled(Text)`
+margin-top: 20px;
+text-align: center;
+font-size: 16px;
+font-weight: 500
+
 `;

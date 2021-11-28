@@ -1,11 +1,10 @@
-/* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 
 import React from 'react';
 import { Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { ExercisDetails, ExerciseHome, ScheduleScreen, SettingsScreen } from '../screens';
+import { ExerciseDetails, ExerciseHome, ScheduleScreen, SettingsScreen } from '../screens';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { COLORS } from '../constants';
 
@@ -18,7 +17,7 @@ const StackNavigator = () => {
         <Stack.Navigator initialRouteName={'ExerciseHome'}>
 
             <Stack.Screen name="ExerciseHome" component={ExerciseHome} options={{ headerShown: false }} />
-            <Stack.Screen name="ExercisDetails" component={ExercisDetails} options={{ headerShown: false }} />
+            <Stack.Screen name="ExerciseDetails" component={ExerciseDetails} options={{ headerShown: false }} />
 
         </Stack.Navigator>
     );
@@ -39,6 +38,7 @@ const BottomTabNavigator = () => {
                         };
                         return (
                             <Icon name={icons[route.name]} color={focused ? COLORS.primary : COLORS.black}
+                                // eslint-disable-next-line react-native/no-inline-styles
                                 style={{
                                     fontSize: 20,
                                     opacity: focused ? 1 : 0.5,
@@ -54,6 +54,7 @@ const BottomTabNavigator = () => {
                             Settings: 'Settings',
                         };
                         return <Text
+                            // eslint-disable-next-line react-native/no-inline-styles
                             style={{
                                 color: focused ? COLORS.primary : COLORS.black,
                                 marginBottom: 5,
