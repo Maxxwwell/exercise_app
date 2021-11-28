@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import React from 'react';
-import { StatusBar, Text, TextInput, Image } from 'react-native';
+import { StatusBar, Text, TextInput } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { ExerciseItem } from '../components/ExerciseItem';

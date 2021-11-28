@@ -39,9 +39,52 @@ export const CardImage = styled(Image)`
 `;
 
 export const CardTitle = styled(Text)`
-margin-top: 20px;
-text-align: center;
-font-size: 16px;
-font-weight: 500
-
+    margin-top: 20px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
 `;
+
+
+
+///////////////////////////////////////////////////////////////////
+
+export const ExerciseTitle = styled(Text)`
+    font-size: 35px;
+    line-height: 45px;
+`;
+
+export const ExerciseDuration = styled(Text)`
+    font-size: 16px;
+    opacity: 0.6;
+    margin-vertical: 5px;
+`;
+
+
+export const ExerciseSubtitle = styled(Text)`
+    font-size: 16px;
+    font-weight: 500;
+    margin-vertical: 5px;
+    width: 85%;
+`;
+
+export const ShortTextField = styled(View)`
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50px;
+    width: 60%;
+    border-radius: 25px;
+    background-color: white;
+    margin-vertical: 30px
+`;
+
+
+export const ExerciseImage = styled(Image)`
+    position: absolute; 
+    resize-mode: contain;
+    height: 110%;
+    width: 175%;
+    bottom: 40px;
+`;
+/////////////////////////////////////////////////////////

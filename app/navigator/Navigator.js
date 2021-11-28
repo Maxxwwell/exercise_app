@@ -41,7 +41,7 @@ const BottomTabNavigator = () => {
                                 // eslint-disable-next-line react-native/no-inline-styles
                                 style={{
                                     fontSize: 20,
-                                    opacity: focused ? 1 : 0.5,
+                                    opacity: focused ? 1 : 0.3,
                                 }}
                             />
                         );
