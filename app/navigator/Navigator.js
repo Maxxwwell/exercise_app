@@ -1,5 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
+
 import React from 'react';
 import { Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -26,39 +27,44 @@ const StackNavigator = () => {
 const BottomTabNavigator = () => {
     return (
         <Tab.Navigator
-            tabBarOptions={{
-                style: {
-                    height: 70,
-                },
-            }}
+
             initialRouteName="AllExercises"
-            screenOptions={({ route }) => ({
-                tabBarIcon: ({ focused }) => {
-                    const icons = {
-                        Schedule: 'calendar',
-                        AllExercises: 'barbell',
-                        Settings: 'settings',
-                    };
-                    return (
-                        <Icon name={icons[route.name]} color={focused ? COLORS.primary : COLORS.black}
+            screenOptions={
+                ({ route }) => ({
+                    tabBarIcon: ({ focused }) => {
+                        const icons = {
+                            Schedule: 'calendar',
+                            AllExercises: 'barbell',
+                            Settings: 'settings',
+                        };
+                        return (
+                            <Icon name={icons[route.name]} color={focused ? COLORS.primary : COLORS.black}
+                                style={{
+                                    fontSize: 20,
+                                    opacity: focused ? 1 : 0.5,
+                                }}
+                            />
+                        );
+                    },
+
+                    tabBarLabel: ({ focused }) => {
+                        const labels = {
+                            Schedule: 'Today',
+                            AllExercises: 'All Exercises',
+                            Settings: 'Settings',
+                        };
+                        return <Text
                             style={{
-                                fontSize: 20,
-                                opacity: focused ? 1 : 0.5,
+                                color: focused ? COLORS.primary : COLORS.black,
+                                marginBottom: 5,
+                                opacity: focused ? 1 : 0.3,
+                                fontWeight: '600',
+                                fontSize: 13,
                             }}
-                        />
-                    );
-                },
+                        >{labels[route.name]}</Text>;
+                    },
 
-                tabBarLabel: ({ focused }) => {
-                    const labels = {
-                        Schedule: 'Today',
-                        AllExercises: 'All Exercises',
-                        Settings: 'Settings',
-                    };
-                    return <Text>{labels[route.name]}</Text>
-                },
-
-            })}>
+                })}>
 
             <Tab.Screen name="Schedule" component={ScheduleScreen} options={{ headerShown: false }} />
             <Tab.Screen name="AllExercises" component={StackNavigator} options={{ headerShown: false }} />

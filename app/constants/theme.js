@@ -4,7 +4,7 @@ const {width, height} = Dimensions.get('screen');
 
 export const COLORS = {
     accent: '#FF7363',
-    primary: '#ffcc31',
+    primary: '#f6f578',
 
     black: '#171717',
     white: '#FFFFFF',
